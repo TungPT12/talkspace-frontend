@@ -1,6 +1,6 @@
 import { appConfig } from './configs'
 import { BaseRoutes } from './routes'
-import './styles/index.css'
+import './styles'
 
 function App() {
   document.title = appConfig.title

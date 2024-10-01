@@ -1,2 +1,2 @@
 import './Button'
-import './Modal'
+import './modal'

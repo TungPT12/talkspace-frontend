@@ -1,3 +1,5 @@
-export const InitialPage = () => {
-  return <div>Initial Page</div>
+import { FC, PropsWithChildren } from 'react'
+
+export const InitialPage: FC<PropsWithChildren> = ({ children }) => {
+  return <div>{children}</div>
 }
