@@ -1,12 +1,7 @@
-import {
-  Outlet,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
-import { InitialLayout } from "../layouts/InitialLayout";
-import { InitialPage } from "../pages/InitialPage";
-import { LoginPage } from "../pages/LoginPage";
+import { Outlet, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { InitialLayout } from '../layouts/InitialLayout'
+import { InitialPage } from '../pages/InitialPage'
+import { LoginPage } from '../pages/LoginPage'
 
 export const BaseRoutes = () => {
   return (
@@ -25,5 +20,5 @@ export const BaseRoutes = () => {
         </Route>
       </Routes>
     </Router>
-  );
-};
+  )
+}
