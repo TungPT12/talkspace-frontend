@@ -1,9 +1,10 @@
-import { appConfig } from "./config";
+import { appConfig } from "./configs";
+import { BaseRoutes } from "./routes";
 import "./styles/index.css";
 
 function App() {
   document.title = appConfig.title;
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return <BaseRoutes />;
 }
 
 export default App;
