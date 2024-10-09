@@ -1,21 +1,22 @@
-import i18n from "i18next";
-import { initReactI18next } from 'react-i18next';
-import { en, vi } from '../services';
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+import { en, vi } from '../services'
 
 export const resources: { en: typeof vi; vi: typeof en } = {
   en,
   vi,
-};
+}
 export enum Languages {
   EN = 'en',
   VI = 'vi',
 }
 
-const i18nInit = i18n
+i18n
   .use(initReactI18next) // bind react-i18next to the instance
   .init({
-    fallbackLng: 'en',
+    fallbackLng: Languages.VI,
     debug: true,
+    resources: resources,
     // react i18next special options (optional)
     // override if needed - omit if ok with defaults
     /*
@@ -28,7 +29,6 @@ const i18nInit = i18n
       useSuspense: true,
     }
     */
-  });
+  })
 
-
-// export const i18n =  i18nInit;
+export default i18n

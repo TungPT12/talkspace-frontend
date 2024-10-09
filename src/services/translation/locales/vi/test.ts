@@ -1,3 +1,3 @@
 export default {
-  test: 'Kiểm thử'
+  test2: 'Kiểm thử',
 }
