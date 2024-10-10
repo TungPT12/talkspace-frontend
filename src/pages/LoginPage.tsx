@@ -7,7 +7,6 @@ export const LoginPage = () => {
   const { mode, setMode } = useMode()
 
   const handleChange = () => {
-    console.log('click', i18n)
     i18n.changeLanguage(i18n.language === Languages.EN ? Languages.VI : Languages.EN)
   }
   return (
@@ -20,7 +19,7 @@ export const LoginPage = () => {
       />
       <main className="absolute inset-0">
         {/* <Modal></Modal> */}
-        <span>{t('test2')}</span>
+        <div>{t('test2')}</div>
         <button onClick={handleChange}>Change Language</button>
         <div>
           <div>{mode}</div>
