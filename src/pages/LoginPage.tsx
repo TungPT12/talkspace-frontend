@@ -1,8 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import i18n, { Languages } from '../contexts/i18n'
+import { Modes, useMode } from '../contexts/ModeProvider'
 
 export const LoginPage = () => {
   const { t } = useTranslation('test')
+  const { mode, setMode } = useMode()
 
   const handleChange = () => {
     console.log('click', i18n)
@@ -20,6 +22,10 @@ export const LoginPage = () => {
         {/* <Modal></Modal> */}
         <span>{t('test2')}</span>
         <button onClick={handleChange}>Change Language</button>
+        <div>
+          <div>{mode}</div>
+          <button onClick={() => setMode((v) => (v === Modes.DARK ? Modes.LIGHT : Modes.DARK))}>Change mode</button>
+        </div>
       </main>
     </div>
   )
