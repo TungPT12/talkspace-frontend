@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useTranslation } from 'react-i18next'
 import i18n, { Languages } from '../contexts/i18n'
 import { Modes, useMode } from '../contexts/ModeProvider'
@@ -5,10 +6,11 @@ import { Modes, useMode } from '../contexts/ModeProvider'
 export const LoginPage = () => {
   const { t } = useTranslation('test')
   const { mode, setMode } = useMode()
-
+  throw new Error('This component crashes during render')
   const handleChange = () => {
     i18n.changeLanguage(i18n.language === Languages.EN ? Languages.VI : Languages.EN)
   }
+
   return (
     <div className="relative h-screen w-screen bg-red-600">
       <img
