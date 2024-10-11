@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useTranslation } from 'react-i18next'
+import FourOhFourImage from '../assets/images/404.svg'
 import i18n, { Languages } from '../contexts/i18n'
 import { Modes, useMode } from '../contexts/ModeProvider'
 
 export const LoginPage = () => {
   const { t } = useTranslation('test')
   const { mode, setMode } = useMode()
-  throw new Error('This component crashes during render')
+  // throw new Error('This component crashes during render')
   const handleChange = () => {
     i18n.changeLanguage(i18n.language === Languages.EN ? Languages.VI : Languages.EN)
   }
@@ -27,6 +28,7 @@ export const LoginPage = () => {
           <div>{mode}</div>
           <button onClick={() => setMode((v) => (v === Modes.DARK ? Modes.LIGHT : Modes.DARK))}>Change mode</button>
         </div>
+        <FourOhFourImage />
       </main>
     </div>
   )
