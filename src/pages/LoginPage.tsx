@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { usePersonStore } from '@/stores'
 import { useTranslation } from 'react-i18next'
 import FourOhFourImage from '../assets/images/404.svg'
 import i18n, { Languages } from '../contexts/i18n'
