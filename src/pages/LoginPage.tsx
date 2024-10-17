@@ -1,53 +1,107 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { usePersonStore } from '@/stores'
-import { useTranslation } from 'react-i18next'
-import FourOhFourImage from '../assets/images/404.svg'
-import i18n, { Languages } from '../contexts/i18n'
-import { Modes, useMode } from '../contexts/ModeProvider'
-import { usePersonStore } from '../stores'
-
+import { useEffect } from 'react'
+import './LoginPage.css'
 export const LoginPage = () => {
-  const { t } = useTranslation('test')
-  const { mode, setMode } = useMode()
-  const firstName = usePersonStore((state) => state.firstName)
-  const updateFirstName = usePersonStore((state) => state.updateFirstName)
+  useEffect(() => {
+    const sign_in_btn = document.querySelector('#sign-in-btn')
+    const sign_up_btn = document.querySelector('#sign-up-btn')
+    console.log(sign_in_btn, sign_up_btn)
+    const container = document.querySelector('.container')
 
-  // throw new Error('This component crashes during render')
-  const handleChange = () => {
-    i18n.changeLanguage(i18n.language === Languages.EN ? Languages.VI : Languages.EN)
-  }
+    sign_up_btn?.addEventListener('click', () => {
+      container?.classList.add('sign-up-mode')
+    })
 
+    sign_in_btn?.addEventListener('click', () => {
+      container?.classList.remove('sign-up-mode')
+    })
+  }, [])
   return (
-    <div className='relative h-screen w-screen bg-red-600'>
-      <img
-        className='absolute h-screen w-screen'
-        src={
-          'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100'
-        }
-      />
-      <main className='absolute inset-0'>
-        {/* <Modal></Modal> */}
-        <div>{t('test2')}</div>
-        <button onClick={handleChange}>Change Language</button>
-        <div>
-          <div>{mode}</div>
-          <button onClick={() => setMode((v) => (v === Modes.DARK ? Modes.LIGHT : Modes.DARK))}>Change mode</button>
+    <div className='container'>
+      <div className='forms-container'>
+        <div className='signin-signup'>
+          <form action='#' className='sign-in-form'>
+            <h2 className='title'>Sign in</h2>
+            <div className='input-field'>
+              <i className='fas fa-user'></i>
+              <input type='text' placeholder='Username' />
+            </div>
+            <div className='input-field'>
+              <i className='fas fa-lock'></i>
+              <input type='password' placeholder='Password' />
+            </div>
+            <input type='submit' value='Login' className='btn solid' />
+            <p className='social-text'>Or Sign in with social platforms</p>
+            <div className='social-media'>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-facebook-f'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-twitter'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-google'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-linkedin-in'></i>
+              </a>
+            </div>
+          </form>
+          <form action='#' className='sign-up-form'>
+            <h2 className='title'>Sign up</h2>
+            <div className='input-field'>
+              <i className='fas fa-user'></i>
+              <input type='text' placeholder='Username' />
+            </div>
+            <div className='input-field'>
+              <i className='fas fa-envelope'></i>
+              <input type='email' placeholder='Email' />
+            </div>
+            <div className='input-field'>
+              <i className='fas fa-lock'></i>
+              <input type='password' placeholder='Password' />
+            </div>
+            <input type='submit' className='btn' value='Sign up' />
+            <p className='social-text'>Or Sign up with social platforms</p>
+            <div className='social-media'>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-facebook-f'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-twitter'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-google'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-linkedin-in'></i>
+              </a>
+            </div>
+          </form>
         </div>
-        <FourOhFourImage />
-        <label>
-          First name
-          <input
-            // Update the "firstName" state
-            onChange={(e) => updateFirstName(e.currentTarget.value)}
-            value={firstName}
-          />
-        </label>
+      </div>
 
-        <p>
-          Hello, <strong>{firstName}!</strong>
-        </p>
-        {/* <Modal></Modal> */}
-      </main>
+      <div className='panels-container'>
+        <div className='panel left-panel'>
+          <div className='content'>
+            <h3>New here ?</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, ex ratione. Aliquid!</p>
+            <button className='btn transparent' id='sign-up-btn'>
+              Sign up
+            </button>
+          </div>
+          <img src='img/log.svg' className='image' alt='' />
+        </div>
+        <div className='panel right-panel'>
+          <div className='content'>
+            <h3>One of us ?</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum laboriosam ad deleniti.</p>
+            <button className='btn transparent' id='sign-in-btn'>
+              Sign in
+            </button>
+          </div>
+          <img src='img/register.svg' className='image' alt='' />
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,9 +1,6 @@
+import { Modes } from '@/interfaces'
 import { createContext, FC, PropsWithChildren, useContext, useState } from 'react'
 
-export enum Modes {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
 interface ModeConfigContext {
   mode: Modes
   setMode: (mode: Modes | ((currentMode: Modes) => Modes)) => void
