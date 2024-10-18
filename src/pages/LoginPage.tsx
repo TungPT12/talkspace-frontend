@@ -4,8 +4,7 @@ export const LoginPage = () => {
   useEffect(() => {
     const sign_in_btn = document.querySelector('#sign-in-btn')
     const sign_up_btn = document.querySelector('#sign-up-btn')
-    console.log(sign_in_btn, sign_up_btn)
-    const container = document.querySelector('.container')
+    const container = document.querySelector('.container2')
 
     sign_up_btn?.addEventListener('click', () => {
       container?.classList.add('sign-up-mode')
@@ -16,7 +15,7 @@ export const LoginPage = () => {
     })
   }, [])
   return (
-    <div className='container'>
+    <div className='container2'>
       <div className='forms-container'>
         <div className='signin-signup'>
           <form action='#' className='sign-in-form'>
