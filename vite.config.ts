@@ -6,6 +6,7 @@ import svgr from 'vite-plugin-svgr'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
+  const generateScopedName = mode === 'production' ? '[hash:base64:5]' : '[local]_[hash:base64:2]'
   return {
     plugins: [
       react(),
@@ -25,6 +26,12 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
+    },
+    css: {
+      modules: {
+        localsConvention: 'camelCase',
+        generateScopedName: generateScopedName,
+      },
     },
   }
 })

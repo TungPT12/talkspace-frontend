@@ -1,27 +1,25 @@
-import useKeyboardShortcut from '@/hooks/useKeyboardShortcut'
+import { useKeyboardShortcut } from '@/hooks'
 import { KEY } from '@/interfaces'
-import { useEffect } from 'react'
+import clsx from 'clsx'
+import { useState } from 'react'
+import style from './Login.module.css'
 import './LoginPage.css'
+
+enum Types {
+  SIGNIN = 'signin',
+  SIGNUP = 'sign-up-mode',
+}
+
 export const LoginPage = () => {
+  const [type, setType] = useState<Types>(Types.SIGNIN)
+
   useKeyboardShortcut([KEY.ONE], () => {
-    const container = document.querySelector('.container2')
-    console.log('render')
-    container?.classList.toggle('sign-up-mode')
+    setType((prev: Types) => (prev === Types.SIGNUP ? Types.SIGNIN : Types.SIGNUP))
   })
-  useEffect(() => {
-    // const sign_in_btn = document.querySelector('#sign-in-btn')
-    // const sign_up_btn = document.querySelector('#sign-up-btn')
-    // const container = document.querySelector('.container2')
-    // sign_up_btn?.addEventListener('click', () => {
-    //   container?.classList.add('sign-up-mode')
-    // })
-    // sign_in_btn?.addEventListener('click', () => {
-    //   container?.classList.remove('sign-up-mode')
-    // })
-  }, [])
+
   return (
-    <div className='container2'>
-      <div className='forms-container'>
+    <div className={clsx(type, 'container2 relative h-screen w-full overflow-hidden bg-white')}>
+      <div className={style.forms}>
         <div className='signin-signup'>
           <form action='#' className='sign-in-form'>
             <h2 className='title'>Sign in</h2>
