@@ -1,18 +1,23 @@
+import useKeyboardShortcut from '@/hooks/useKeyboardShortcut'
+import { KEY } from '@/interfaces'
 import { useEffect } from 'react'
 import './LoginPage.css'
 export const LoginPage = () => {
-  useEffect(() => {
-    const sign_in_btn = document.querySelector('#sign-in-btn')
-    const sign_up_btn = document.querySelector('#sign-up-btn')
+  useKeyboardShortcut([KEY.ONE], () => {
     const container = document.querySelector('.container2')
-
-    sign_up_btn?.addEventListener('click', () => {
-      container?.classList.add('sign-up-mode')
-    })
-
-    sign_in_btn?.addEventListener('click', () => {
-      container?.classList.remove('sign-up-mode')
-    })
+    console.log('render')
+    container?.classList.toggle('sign-up-mode')
+  })
+  useEffect(() => {
+    // const sign_in_btn = document.querySelector('#sign-in-btn')
+    // const sign_up_btn = document.querySelector('#sign-up-btn')
+    // const container = document.querySelector('.container2')
+    // sign_up_btn?.addEventListener('click', () => {
+    //   container?.classList.add('sign-up-mode')
+    // })
+    // sign_in_btn?.addEventListener('click', () => {
+    //   container?.classList.remove('sign-up-mode')
+    // })
   }, [])
   return (
     <div className='container2'>
