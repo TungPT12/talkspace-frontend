@@ -1,5 +1,5 @@
 import { useKeyboardShortcut } from '@/hooks'
-import { KEY } from '@/interfaces'
+import { Key } from '@/interfaces'
 import clsx from 'clsx'
 import { useState } from 'react'
 import style from './Login.module.css'
@@ -13,7 +13,7 @@ enum Types {
 export const LoginPage = () => {
   const [type, setType] = useState<Types>(Types.SIGNIN)
 
-  useKeyboardShortcut([KEY.ONE], () => {
+  useKeyboardShortcut([Key.ONE], () => {
     setType((prev: Types) => (prev === Types.SIGNUP ? Types.SIGNIN : Types.SIGNUP))
   })
 
@@ -23,7 +23,7 @@ export const LoginPage = () => {
         <div className='signin-signup'>
           <form action='#' className='sign-in-form'>
             <h2 className='title'>Sign in</h2>
-            <div className='input-field'>
+            <div className='input-field bg-red-500 dark:bg-blue-400'>
               <i className='fas fa-user'></i>
               <input type='text' placeholder='Username' />
             </div>

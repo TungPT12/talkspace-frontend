@@ -1,5 +1,5 @@
 .forms {
-  @apply absolute left-0 top-0 h-full w-full bg-red-900;
+  @apply absolute left-0 top-0 h-full w-full bg-white dark:bg-gray-900;
 }
 .form_item {
   position: absolute;
