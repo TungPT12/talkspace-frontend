@@ -1,7 +1,8 @@
 .forms {
   @apply absolute left-0 top-0 h-full w-full bg-white dark:bg-gray-900;
 }
-.form_item {
+
+.form-items {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -12,7 +13,21 @@
   grid-template-columns: 1fr;
   z-index: 5;
 }
+.form_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  transition: all 0.2s 0.7s;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
 .sign-in {
+  opacity: 0;
+  z-index: 1;
 }
 .sign-up {
+  z-index: 2;
 }
