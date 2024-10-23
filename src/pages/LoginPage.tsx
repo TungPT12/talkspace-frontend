@@ -12,14 +12,18 @@ enum Types {
 
 export const LoginPage = () => {
   const [type, setType] = useState<Types>(Types.SIGNIN)
+  const [test, setTest] = useState<string>('')
 
   useKeyboardShortcut([Key.ONE], () => {
     setType((prev: Types) => (prev === Types.SIGNUP ? Types.SIGNIN : Types.SIGNUP))
   })
+  useKeyboardShortcut([Key.NINE], () => {
+    setTest((prev: string) => (prev === '' ? 'active' : ''))
+  })
 
   return (
     <div className={clsx(type, 'container2 relative h-screen w-full overflow-hidden bg-white')}>
-      <div className={style.forms}>
+      <div className={clsx(style.forms, test)}>
         <div className='signin-signup'>
           <div className='sign-in-form'>Sign in</div>
           <div className='sign-up-form'>Sign up</div>

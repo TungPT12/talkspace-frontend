@@ -1,7 +1,9 @@
 .forms {
   @apply absolute left-0 top-0 h-full w-full bg-white dark:bg-gray-900;
 }
-
+.forms.active {
+  @apply bg-red-700;
+}
 .form-items {
   position: absolute;
   top: 50%;

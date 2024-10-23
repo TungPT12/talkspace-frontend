@@ -31,13 +31,12 @@ export default defineConfig(({ mode }) => {
       modules: {
         localsConvention: 'camelCase',
         generateScopedName: (name, filename, css) => {
-          console.log(css)
-          if (name === 'dark') return 'dark'
-          // const i = css.indexOf(`.${name}`)
-          // const lineNumber = css.substring(0, i).split(/[\r\n]/).length
-          // return mode === 'production' ? '[hash:base64:5]' : '[local]_[hash:base64:2]'
-          const hash = stringHash(css).toString(36).substring(0, 5)
-          return mode === 'production' ? `${name}`: `${name}_${hash}`
+          if (name === 'dark') return name
+          const i = css.indexOf(`.${name}`)
+          console.log(name)
+          const lineNumber = css.substring(0, i).split(/[\r\n]/).length
+          const hash = stringHash(filename).toString(36).substring(0, 5)
+          return mode === 'production' ? `${hash}_${lineNumber}` : `${name}__${hash}_${lineNumber}`
         },
       },
     },
