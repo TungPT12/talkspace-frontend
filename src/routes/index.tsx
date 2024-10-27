@@ -2,7 +2,7 @@ import { Outlet, Route, BrowserRouter as Router, Routes } from 'react-router-dom
 import { InitialLayout } from '../layouts/InitialLayout'
 import { NotFound } from '../pages'
 import { InitialPage } from '../pages/InitialPage'
-import { LoginPage } from '../pages/LoginPage'
+import { LoginPage } from '../pages/login/LoginPage'
 
 export const BaseRoutes = () => {
   return (
