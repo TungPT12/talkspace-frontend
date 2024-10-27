@@ -1,4 +1,4 @@
-import FourOhFourLogo from '../assets/images/404.svg'
+import FourOhFourLogo from '../assets/images/svgs/404.svg'
 
 export const NotFound = () => {
   return (
