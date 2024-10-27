@@ -1,9 +1,7 @@
 .container {
   @apply absolute min-h-screen w-full overflow-hidden bg-white;
-  @apply before:absolute before:-top-[10px] before:right-[48%] before:z-[6] before:h-[2000px] before:w-[2000px] before:-translate-y-1/2 before:rounded-[50%] before:duration-[1.8s] before:ease-in-out before:content-[''];
-}
-.container:before {
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  @apply before:absolute before:-top-[10px] before:right-[48%] before:z-[6] before:h-[2000px] before:w-[2000px] before:-translate-y-1/2 before:rounded-[50%] before:bg-gradient-to-tl before:duration-[1.8s] before:ease-in-out before:content-[''];
+  @apply before:from-blue-500 before:to-cyan-400;
 }
 .forms-container {
   @apply absolute left-0 top-0 h-full w-full;
@@ -44,13 +42,10 @@
   @apply text-white transition-[transform] duration-[0.9s] ease-in-out;
 }
 .panel h3 {
-  font-weight: 600;
-  line-height: 1;
-  font-size: 1.5rem;
+  @apply text-base font-semibold;
 }
 .panel p {
-  font-size: 0.95rem;
-  padding: 0.7rem 0;
+  @apply py-[0.7rem] text-[0.95rem];
 }
 .right-panel .image,
 .right-panel .content {
