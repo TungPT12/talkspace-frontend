@@ -1,32 +1,86 @@
-import { useKeyboardShortcut } from '@/hooks'
-import { Key } from '@/interfaces'
-import clsx from 'clsx'
-import { useState } from 'react'
-import style from './Login.module.css'
+import useKeyboardShortcut from '@/hooks/useKeyboardShortcut'
+import { KEY } from '@/interfaces'
+import { useEffect } from 'react'
 import './LoginPage.css'
-
-enum Types {
-  SIGNIN = 'signin',
-  SIGNUP = 'sign-up-mode',
-}
-
 export const LoginPage = () => {
-  const [type, setType] = useState<Types>(Types.SIGNIN)
-  const [test, setTest] = useState<string>('')
-
-  useKeyboardShortcut([Key.ONE], () => {
-    setType((prev: Types) => (prev === Types.SIGNUP ? Types.SIGNIN : Types.SIGNUP))
+  useKeyboardShortcut([KEY.ONE], () => {
+    const container = document.querySelector('.container2')
+    console.log('render')
+    container?.classList.toggle('sign-up-mode')
   })
-  useKeyboardShortcut([Key.NINE], () => {
-    setTest((prev: string) => (prev === '' ? 'active' : ''))
-  })
-
+  useEffect(() => {
+    // const sign_in_btn = document.querySelector('#sign-in-btn')
+    // const sign_up_btn = document.querySelector('#sign-up-btn')
+    // const container = document.querySelector('.container2')
+    // sign_up_btn?.addEventListener('click', () => {
+    //   container?.classList.add('sign-up-mode')
+    // })
+    // sign_in_btn?.addEventListener('click', () => {
+    //   container?.classList.remove('sign-up-mode')
+    // })
+  }, [])
   return (
-    <div className={clsx(type, 'container2 relative h-screen w-full overflow-hidden bg-white')}>
-      <div className={clsx(style.forms, test)}>
+    <div className='container2'>
+      <div className='forms-container'>
         <div className='signin-signup'>
-          <div className='sign-in-form'>Sign in</div>
-          <div className='sign-up-form'>Sign up</div>
+          <form action='#' className='sign-in-form'>
+            <h2 className='title'>Sign in</h2>
+            <div className='input-field'>
+              <i className='fas fa-user'></i>
+              <input type='text' placeholder='Username' />
+            </div>
+            <div className='input-field'>
+              <i className='fas fa-lock'></i>
+              <input type='password' placeholder='Password' />
+            </div>
+            <input type='submit' value='Login' className='btn solid' />
+            <p className='social-text'>Or Sign in with social platforms</p>
+            <div className='social-media'>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-facebook-f'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-twitter'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-google'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-linkedin-in'></i>
+              </a>
+            </div>
+          </form>
+          <form action='#' className='sign-up-form'>
+            <h2 className='title'>Sign up</h2>
+            <div className='input-field'>
+              <i className='fas fa-user'></i>
+              <input type='text' placeholder='Username' />
+            </div>
+            <div className='input-field'>
+              <i className='fas fa-envelope'></i>
+              <input type='email' placeholder='Email' />
+            </div>
+            <div className='input-field'>
+              <i className='fas fa-lock'></i>
+              <input type='password' placeholder='Password' />
+            </div>
+            <input type='submit' className='btn' value='Sign up' />
+            <p className='social-text'>Or Sign up with social platforms</p>
+            <div className='social-media'>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-facebook-f'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-twitter'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-google'></i>
+              </a>
+              <a href='#' className='social-icon'>
+                <i className='fab fa-linkedin-in'></i>
+              </a>
+            </div>
+          </form>
         </div>
       </div>
 

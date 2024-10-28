@@ -1,4 +1,4 @@
-export enum Key {
+export enum KEY {
   CTRL = 'CTRL',
   SHIFT = 'SHIFT',
   ALT = 'ALT',
