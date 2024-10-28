@@ -1,5 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react'
-import SomethingWrongImage from '../assets/images/something_wrong.svg'
+import SomethingWrongImage from '../assets/images/svgs/something_wrong.svg'
 interface ErrorBoundaryProps {
   children: ReactNode
 }
@@ -29,10 +29,10 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <div className="flex h-screen w-screen flex-col items-center justify-center gap-16 bg-purple-200">
+        <div className='flex h-screen w-screen flex-col items-center justify-center gap-16 bg-purple-200'>
           <SomethingWrongImage />
-          <h1 className="text-5xl">Oops !!</h1>
-          <div className="text-3xl">Sorry!! Something went wrong</div>
+          <h1 className='text-5xl'>Oops !!</h1>
+          <div className='text-3xl'>Sorry!! Something went wrong</div>
         </div>
       )
     }

@@ -17,7 +17,7 @@ export default {
       },
       borderColor: {
         'custom-1': 'rgba(255, 255, 255, 0.125)'
-      }
+      },
     },
   },
   darkMode: ['selector'],
