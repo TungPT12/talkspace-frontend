@@ -3,6 +3,12 @@
   @apply before:absolute before:-top-[10px] before:right-[48%] before:z-[6] before:h-[2000px] before:w-[2000px] before:-translate-y-1/2 before:rounded-[50%] before:bg-gradient-to-tl before:duration-[1.8s] before:ease-in-out before:content-[''];
   @apply before:from-blue-500 before:to-cyan-400;
 }
+@media screen and (max-width: 870px) {
+  .container {
+    @apply h-screen min-h-[800px];
+    @apply before:bottom-[68%] before:left-[30%] before:right-[initial] before:top-[initial] before:h-[1500px] before:w-[1500px] before:-translate-x-1/2 before:translate-y-0 before:duration-[2s] before:ease-in-out;
+  }
+}
 .forms-container {
   @apply absolute left-0 top-0 h-full w-full;
 }
@@ -79,26 +85,17 @@
   @apply pointer-events-auto;
 }
 @media (max-width: 870px) {
-  .container {
-    min-height: 800px;
-    height: 100vh;
-  }
-  .container:before {
-    width: 1500px;
-    height: 1500px;
-    transform: translateX(-50%);
-    left: 30%;
-    bottom: 68%;
-    right: initial;
-    top: initial;
-    transition: 2s ease-in-out;
-  }
   .signin-signup {
     width: 100%;
     top: 95%;
     transform: translate(-50%, -100%);
     transition: 1s 0.8s ease-in-out;
   }
+
+  .container.sign-up-mode:before {
+    @apply before:bottom-[32%] before:right-[initial] before:-translate-x-1/2 before:translate-y-full;
+  }
+
   .signin-signup,
   .container.sign-up-mode .signin-signup {
     left: 50%;
@@ -138,12 +135,6 @@
     width: 110px;
     height: 35px;
     font-size: 0.7rem;
-  }
-
-  .container.sign-up-mode:before {
-    transform: translate(-50%, 100%);
-    bottom: 32%;
-    right: initial;
   }
   .container.sign-up-mode .left-panel .image,
   .container.sign-up-mode .left-panel .content {
