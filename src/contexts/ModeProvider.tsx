@@ -32,7 +32,7 @@
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 import { Modes } from '@/interfaces'
 import { LOCAL_STORAGE } from '@/utils'
-import { createContext, FC, PropsWithChildren, useContext } from 'react'
+import { createContext, FC, PropsWithChildren, useContext, useEffect } from 'react'
 
 interface ModeConfigContext {
   mode: Modes
@@ -45,11 +45,11 @@ export const ModeProvider: FC<PropsWithChildren> = (props) => {
   const [mode, setMode] = useLocalStorage<Modes>(LOCAL_STORAGE.theme)
 
   const handleMode = (mode: Modes | ((val: Modes) => Modes)) => {
-    setMode()
+    setMode(mode)
   }
 
   useEffect(() => {}, [])
-  return <ModeContext.Provider value={{ mode, setMode: updateMode }}>{children}</ModeContext.Provider>
+  return <ModeContext.Provider value={{ mode, setMode: handleMode }}>{children}</ModeContext.Provider>
 }
 
 export const useMode = () => {

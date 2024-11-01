@@ -1,10 +1,11 @@
 import LoginImage from '@/assets/images/svgs/login.svg'
 import RegisterImage from '@/assets/images/svgs/register.svg'
-import { useKeyboardShortcut } from '@/hooks'
-import { Key } from '@/interfaces'
+// import { useKeyboardShortcut } from '@/hooks'
+import { KEY } from '@/interfaces'
 import clsx from 'clsx'
 import { useState } from 'react'
 import style from './Login.module.css'
+import useKeyboardShortcut from '@/hooks/useKeyboardShortcut'
 enum Types {
   signin = 'signin',
   signup = 'signup',
@@ -13,7 +14,7 @@ enum Types {
 export const LoginPage = () => {
   const [type, setType] = useState<Types>(Types.signin)
 
-  useKeyboardShortcut([Key.ONE], () => {
+  useKeyboardShortcut([KEY.ONE], () => {
     setType((prev: Types) => (prev === Types.signin ? Types.signup : Types.signin))
   })
   const handleSignin = () => {
