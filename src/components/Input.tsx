@@ -23,7 +23,7 @@ export const Input: FC<InputProps> = (props) => {
     <div className={`${styles['input']} text-sm border flex border-lime-700 relative items-center`}>
       <PasswordImage className='h-3.5 w-auto'/>
       <input className='px-1 py-2 w-full text-sm outline-none' onChange={onChange}  type={type}/>
-      <div className='placeholder absolute left-6 '>{placeholder}</div>
+      <div className='placeholder absolute left-6'>{placeholder}</div>
     </div>
   )
 }
